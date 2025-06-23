@@ -40,9 +40,9 @@ do {
     string codeFile = "";
     
     if(command == "1" || command == "2")
-        codeFile = System.IO.File.ReadAllText("../sample-code/function/function.cs");
+        codeFile = System.IO.File.ReadAllText("sample-code/function/function.cs");
     else if(command == "3")
-        codeFile = System.IO.File.ReadAllText("../sample-code/go-fish/go-fish.cs");
+        codeFile = System.IO.File.ReadAllText("sample-code/go-fish/go-fish.cs");
     else {
         Console.WriteLine("Invalid input. Please try again.");
         continue;
@@ -72,7 +72,20 @@ async Task GetResponseFromOpenAI(string prompt)
     string userPrompt = prompt;
 
     // Format and send the request to the model
+    // Format and send the request to the model
+    var chatCompletionsOptions = new ChatCompletionOptions()
+    {
+        Temperature = 0.7f,
+        MaxOutputTokenCount = 800
+    };
 
+    // Get response from Azure OpenAI
+    ChatCompletion response = await chatClient.CompleteChatAsync(
+        [
+            new SystemChatMessage(systemPrompt),
+         new UserChatMessage(userPrompt),
+     ],
+        chatCompletionsOptions);
 
     // Write full response to console, if requested
     if (printFullResponse)
