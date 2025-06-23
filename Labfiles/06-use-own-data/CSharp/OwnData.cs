@@ -13,7 +13,9 @@ internal class Program
     {
         // Flag to show citations
         bool showCitations = false;
-        var hoi = 1;
+
+        var test = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+
         // Get configuration settings  
         IConfiguration config = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json")
