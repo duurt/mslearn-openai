@@ -1,3 +1,6 @@
 bin
 obj
 *.sln
+/Labfiles/03-image-generation/CSharp/.vs/dalle-client/CopilotIndices/17.14.786.1071
+/Labfiles/03-image-generation/CSharp/.vs/dalle-client/DesignTimeBuild
+/Labfiles/03-image-generation/CSharp/.vs/dalle-client/FileContentIndex
